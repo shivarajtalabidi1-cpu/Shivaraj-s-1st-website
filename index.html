@@ -1,69 +1,143 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My AI Study Hub</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: #f2f2f2;
             margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            color: #222;
         }
 
         header {
             background: #222;
             color: white;
-            padding: 30px;
+            text-align: center;
+            padding: 30px 15px;
         }
 
-        .box {
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        header p {
+            margin-bottom: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 25px 15px;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .subject {
             background: white;
-            width: 80%;
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 30px;
+            padding: 25px 10px;
             border-radius: 15px;
-        }
-
-        button {
-            padding: 12px 25px;
-            font-size: 16px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             cursor: pointer;
         }
 
-        #message {
-            margin-top: 20px;
-            font-size: 18px;
+        .subject:hover {
+            transform: scale(1.03);
+        }
+
+        .subject h2 {
+            margin: 10px 0;
+        }
+
+        .subject p {
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            background: #222;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .subjects {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>📚 My AI Study Hub</h1>
-        <p>Learn • Practice • Improve</p>
-    </header>
+<header>
+    <h1>📚 My AI Study Hub</h1>
+    <p>Learn • Practice • Improve</p>
+</header>
 
-    <div class="box">
-        <h2>Welcome!</h2>
+<div class="container">
 
-        <p>This is my first website.</p>
-
-        <button onclick="showMessage()">
-            Click Me
-        </button>
-
-        <div id="message"></div>
+    <div class="welcome">
+        <h2>Welcome! 👋</h2>
+        <p>Choose a subject to start learning.</p>
     </div>
 
-    <script>
-        function showMessage() {
-            document.getElementById("message").innerHTML =
-                "🎉 Great! You just ran JavaScript!";
-        }
-    </script>
+    <div class="subjects">
+
+        <div class="subject" onclick="openSubject('Maths')">
+            <h2>📐 Maths</h2>
+            <p>Formulas, problems & practice</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Physics')">
+            <h2>⚡ Physics</h2>
+            <p>Concepts, formulas & questions</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Chemistry')">
+            <h2>🧪 Chemistry</h2>
+            <p>Reactions, concepts & practice</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Quizzes')">
+            <h2>📝 Quizzes</h2>
+            <p>Test your knowledge</p>
+        </div>
+
+    </div>
+
+    <div id="message" style="text-align:center; margin-top:25px;"></div>
+
+</div>
+
+<footer>
+    © 2026 My AI Study Hub
+</footer>
+
+<script>
+    function openSubject(subject) {
+        document.getElementById("message").innerHTML =
+            "🚀 You selected <b>" + subject + "</b>!";
+    }
+</script>
 
 </body>
-</html>
+</html>             
